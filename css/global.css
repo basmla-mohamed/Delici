@@ -1,0 +1,30 @@
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Forum", serif;
+}
+
+:root {
+  --mainColor: #e4c590;
+  --firstColor: #0e0d0c;
+}
+
+html::-webkit-scrollbar {
+  width: 15px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #202020;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--mainColor);
+  border-radius: 5px;
+}

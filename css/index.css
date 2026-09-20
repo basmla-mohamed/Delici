@@ -1,0 +1,2059 @@
+/*loading page*/
+#loadingPage {
+  background-color: rgba(228, 197, 144, 0.9);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  flex-direction: column;
+  perspective: 1000px;
+  transition-duration: 3s;
+}
+#loadingPage.hide {
+  opacity: 0;
+}
+#loadingPage p {
+  font-size: 6rem;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+
+#loadingPage p span.letter {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 2px #171819; /*-webkit-text-stroke => make border around letter*/
+}
+
+#loadingPage p span.letter::before,
+#loadingPage p span.letter::after {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  color: #171819;
+  -webkit-text-stroke: 2px #171819;
+  overflow: hidden;
+  opacity: 0;
+}
+
+#loadingPage p span.letter::before {
+  top: 0;
+  transform-origin: bottom;
+  transform: rotateX(-90deg);
+  animation-name: rotateTop;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+#loadingPage p span.letter::after {
+  bottom: 0;
+  line-height: 0;
+  transform-origin: top;
+  transform: rotateX(90deg);
+  animation-name: rotateBottom;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+#loadingPage p span.letter:nth-child(1)::before,
+#loadingPage p span.letter:nth-child(1)::after {
+  content: "D";
+  animation-delay: 0s;
+}
+
+#loadingPage p span.letter:nth-child(2)::before,
+#loadingPage p span.letter:nth-child(2)::after {
+  content: "E";
+  animation-delay: 0.2s;
+}
+
+#loadingPage p span.letter:nth-child(3)::before,
+#loadingPage p span.letter:nth-child(3)::after {
+  content: "L";
+  animation-delay: 0.4s;
+}
+
+#loadingPage p span.letter:nth-child(4)::before,
+#loadingPage p span.letter:nth-child(4)::after {
+  content: "I";
+  animation-delay: 0.6s;
+}
+
+#loadingPage p span.letter:nth-child(5)::before,
+#loadingPage p span.letter:nth-child(5)::after {
+  content: "C";
+  animation-delay: 0.8s;
+}
+
+#loadingPage p span.letter:nth-child(6)::before,
+#loadingPage p span.letter:nth-child(6)::after {
+  content: "I";
+  animation-delay: 1s;
+}
+
+.load {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.load::before {
+  content: "";
+  position: absolute;
+  padding: 40px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.load::after {
+  content: "";
+  position: absolute;
+  padding: 40px;
+  border: 3px solid transparent;
+  border-top-color: #171819;
+  border-radius: 50%;
+  animation-name: spinLoad;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/*-------------------navBar----------------*/
+nav.navbar {
+  position: fixed;
+  z-index: 1000;
+  background-color: transparent;
+
+  width: 100%;
+  transition-duration: 1s;
+}
+nav.navbar.scrolled {
+  transform: translateY(-100px);
+}
+nav.navbar.changeColor {
+  background-color: #202020;
+}
+nav .navbar-toggler {
+  border: none;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  padding: 0;
+}
+nav .logo {
+  width: 12%;
+}
+nav .navbar-toggler:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+nav .navbar-toggler span {
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+nav .navbar-toggler span:nth-child(1) {
+  top: 0;
+  animation-name: span1;
+  animation-duration: 1.1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+nav .navbar-toggler span:nth-child(2) {
+  top: 6px;
+  animation-name: span1;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+nav .navbar-toggler span:nth-child(3) {
+  top: 12px;
+  animation-name: span1;
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+nav ul.list a {
+  color: #fff;
+  transition-duration: 0.5s;
+  position: relative;
+}
+nav ul.list a:hover {
+  color: var(--mainColor);
+}
+nav ul.list a:before {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 4px;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 1px solid var(--mainColor);
+  border-bottom: 1px solid var(--mainColor);
+  transition-duration: 0.5s;
+}
+
+nav ul.list a:hover:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 1px solid var(--mainColor);
+  border-bottom: 1px solid var(--mainColor);
+  transition-duration: 0.5s;
+}
+nav ul.list a.active:before {
+  width: 100%;
+}
+nav ul.list a.active {
+  color: var(--mainColor);
+}
+
+/*---------------nav offcanvas----------------*/
+nav .offcanvas {
+  background-image: url("../images/bg.png");
+  background-color: var(--firstColor);
+  transition-duration: 0.5s;
+}
+.offcanvas-backdrop {
+  background-color: rgba(228, 197, 144, 0.5);
+  transition-duration: 0.5s;
+}
+.offcanvas-backdrop.show {
+  opacity: 1;
+}
+
+nav .offcanvas button.close {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+nav .offcanvas button.close i {
+  font-size: 20px;
+  color: #fff;
+}
+nav .offcanvas button.close:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+nav .offcanvas .image,
+nav .offcanvas .loggo {
+  width: fit-content;
+}
+nav .offcanvas .image {
+  width: 150px;
+}
+nav .offcanvas .navbar-nav {
+  width: 60%;
+  margin: auto;
+}
+nav .offcanvas .navbar-nav .nav-item:nth-of-type(1) {
+  border-top: 1px solid #fff;
+}
+nav .offcanvas .navbar-nav .nav-item {
+  border-bottom: 1px solid #ffff;
+}
+nav .offcanvas .navbar-nav .nav-link {
+  width: fit-content;
+  transition-duration: 0.5s;
+}
+nav .offcanvas .navbar-nav .nav-link:hover {
+  color: var(--mainColor) !important;
+}
+nav .offcanvas .navbar-nav .nav-link:before {
+  content: "";
+  display: none;
+  width: 13px;
+  height: 13px;
+  background-color: transparent;
+  border: 2px solid var(--mainColor);
+  margin-right: 10px;
+  transform: rotate(45deg);
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+nav .offcanvas .navbar-nav .nav-link.active:before {
+  display: inline-block;
+}
+nav .offcanvas .navbar-nav .nav-link.active {
+  color: var(--mainColor) !important;
+}
+nav .offcanvas-body {
+  overflow-y: auto;
+}
+nav .offcanvas-body::-webkit-scrollbar {
+  background-color: #202020;
+}
+nav .offcanvas-body::-webkit-scrollbar-thumb {
+  background: var(--mainColor);
+  border-radius: 10px;
+}
+nav .offcanvas button.close {
+  margin-left: auto;
+  display: block;
+}
+nav .offcanvas-body {
+  outline: none;
+}
+nav .info {
+  color: #a7a7a7;
+}
+nav .location,
+nav .time,
+nav .email {
+  width: fit-content;
+}
+p.b {
+  width: 100%;
+  text-align: center;
+}
+
+p.b::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  border: 2px solid var(--mainColor);
+  transform: rotate(45deg);
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+nav .book {
+  width: fit-content;
+}
+nav .book .phone {
+  color: var(--mainColor);
+}
+nav .offcanvas .loggo img {
+  animation-name: logoAnimation;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+nav .offcanvas .nav-item {
+  opacity: 0; /*in the start before show*/
+}
+
+nav .offcanvas.show .nav-item {
+  animation-name: show;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards; /*to dont take opacity 0 again*/
+}
+
+nav .offcanvas.show .nav-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+nav .offcanvas.show .nav-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+nav .offcanvas.show .nav-item:nth-child(3) {
+  animation-delay: 0.7s;
+}
+nav .offcanvas.show .nav-item:nth-child(4) {
+  animation-delay: 1s;
+}
+nav .offcanvas.show .nav-item:nth-child(5) {
+  animation-delay: 1.3s;
+}
+nav .offcanvas.show .nav-item:nth-child(6) {
+  animation-delay: 1.6s;
+}
+nav .offcanvas.show .nav-item:nth-child(7) {
+  animation-delay: 1.9s;
+}
+
+/*-----------------------------Home---------------------------*/
+#home {
+  position: relative;
+}
+#home .carousel-indicators {
+  width: fit-content;
+  position: absolute;
+  top: 93%;
+  left: 82%;
+  transform: translateX(-80%);
+}
+#home .carousel-control-prev {
+  width: fit-content;
+}
+#home .carousel-control-next {
+  width: fit-content;
+}
+#home .indicatorr {
+  width: 11px;
+  height: 11px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+}
+#home .indicatorr.active {
+  background-color: var(--mainColor);
+}
+#carouselExampleFade,
+#carouselExampleFade .carousel-inner {
+  height: 100vh;
+}
+
+.carousel-item:nth-of-type(1) {
+  background-image: url("../images/slider-1.jpg");
+}
+.carousel-item:nth-of-type(2) {
+  background-image: url("../images/slider-2.jpg");
+}
+.carousel-item:nth-of-type(3) {
+  background-image: url("../images/slider-3.jpg");
+}
+
+#carouselExampleFade .carousel-item {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1.3);
+}
+
+#carouselExampleFade .carousel-item.active {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+
+#carouselExampleFade .carousel-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(228, 197, 144, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+#carouselExampleFade .carousel-item.active:not(.carousel-item-start) {
+  animation-name: zoom;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+#carouselExampleFade .carousel-item.active:not(.carousel-item-start)::after {
+  animation-name: Flash;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+#home .title h6 {
+  color: var(--mainColor);
+  letter-spacing: 1.5px;
+}
+#home .title .image {
+  width: 50%;
+  margin: auto;
+}
+#home h1 {
+  font-size: 5rem;
+  width: 50%;
+  text-align: center;
+}
+#home p.description {
+  font-size: 23px;
+  font-weight: 200;
+}
+#home a.viewMenu {
+  text-transform: uppercase;
+  font-size: 15px;
+  border: 2px solid var(--mainColor);
+  border-radius: 5px;
+  padding: 15px 35px;
+  letter-spacing: 1.5px;
+  position: relative;
+  overflow: hidden;
+}
+#home a.viewMenu:before {
+  content: "";
+  background-color: var(--mainColor);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transform: translateY(-100%);
+  top: 0;
+  left: 0;
+  transition-duration: 0.5s;
+}
+#home a.viewMenu:after {
+  content: "";
+  background-color: var(--mainColor);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transform: translateY(100%);
+  bottom: 0;
+  left: 0;
+  transition-duration: 0.5s;
+}
+#home a.viewMenu:hover:after,
+#home a.viewMenu:hover:before {
+  transform: translateY(0);
+}
+#home p.layer {
+  position: relative;
+  z-index: 1000;
+  color: var(--mainColor);
+  transition-duration: 0.4s;
+}
+#home a.viewMenu:hover p.layer {
+  color: #000;
+}
+#home .carousel-item .title {
+  transform: translateY(30px);
+  transition-duration: 0.7s;
+  transition-delay: 0.2s;
+  opacity: 0;
+}
+#home .carousel-item .title,
+#home .carousel-item h1,
+#home .carousel-item p.description,
+#home .carousel-item a.viewMenu {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+#home .carousel-item.active .title {
+  animation: animationOfHeader 0.6s linear 0.4s forwards;
+  width: fit-content;
+}
+
+#home .carousel-item.active h1 {
+  animation: animationOfHeader 0.6s linear 0.9s forwards;
+}
+
+#home .carousel-item.active p.description {
+  animation: animationOfHeader 0.6s linear 1.4s forwards;
+}
+
+#home .carousel-item.active a.viewMenu {
+  animation: animationOfHeader 0.6s linear 1.9s forwards;
+}
+
+.custom-control {
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--mainColor);
+  padding: 5px 10px;
+  transform: translateY(-50%) rotate(45deg);
+  transition:
+    transform 0.5s linear,
+    background-color 0.5s linear;
+}
+
+.custom-arrow {
+  display: inline-block;
+  transform: rotate(-45deg);
+  font-size: 16px;
+  color: var(--mainColor);
+  transition: color 0.4s linear;
+}
+
+.custom-control:hover {
+  background-color: var(--mainColor);
+}
+
+.custom-control:hover .custom-arrow {
+  color: #000;
+}
+
+.carousel-control-next {
+  right: 25px;
+}
+.carousel-control-prev {
+  left: 25px;
+}
+
+#home .carousel-item {
+  position: relative;
+}
+#home .booking {
+  position: absolute;
+  top: 93%;
+  left: 40px;
+  transform: translateY(-93%);
+  width: 100px;
+  height: 100px;
+  background-color: var(--mainColor);
+  padding: 10px 5px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 200;
+}
+
+#home .booking::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--mainColor);
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition-duration: 1s;
+  animation-name: Square;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#home .booking img {
+  width: 45%;
+}
+
+#home .booking p {
+  width: 75%;
+  margin-bottom: 0;
+  margin: 5px auto;
+  font-size: 13px;
+}
+
+/*Popup of booking*/
+#popupReservation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(228, 197, 144, 0.5);
+  z-index: 5000;
+  display: none;
+  opacity: 0;
+  transition-duration: 1s;
+}
+
+#popupReservation.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#popupReservation.show {
+  opacity: 1;
+}
+
+#popupReservation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30px 0;
+  background-color: rgba(228, 197, 144, 0.5);
+  z-index: 5000;
+  display: none;
+  opacity: 0;
+  transition-duration: 1s;
+}
+
+#popupReservation.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#popupReservation.show {
+  opacity: 1;
+}
+
+#popupReservation .box {
+  background-color: #171819;
+  width: 43%;
+  max-height: 100%;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  transform: translateY(-400px);
+  opacity: 0;
+  transition-duration: 1s;
+}
+
+#popupReservation.show .box {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#popupReservation .title {
+  width: fit-content;
+  margin: auto;
+}
+
+#popupReservation .title .image {
+  width: 85%;
+  margin: auto;
+}
+
+#popupReservation .title h5 {
+  color: var(--mainColor);
+}
+
+#popupReservation i {
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  width: 25px;
+  height: 25px;
+}
+
+#popupReservation p.description {
+  color: #a7a7a7;
+}
+
+#popupReservation p.info {
+  color: #a7a7a7;
+}
+
+#popupReservation p.info span {
+  color: var(--mainColor);
+}
+
+#popupReservation .form .item {
+  width: 100%;
+}
+
+#popupReservation input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer; /*in date*/
+}
+
+#popupReservation .form .item input,
+#popupReservation .form textarea {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #a7a7a7 !important;
+  outline: none;
+  border-radius: 5px;
+}
+
+#popupReservation .form .item textarea {
+  height: 130px;
+  resize: none;
+}
+
+#popupReservation p.book {
+  text-transform: uppercase;
+  font-size: 15px;
+  border: 2px solid var(--mainColor);
+  border-radius: 5px;
+  padding: 15px 35px;
+  letter-spacing: 1.5px;
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#popupReservation p.book span.layer {
+  position: relative;
+  z-index: 10;
+  color: var(--mainColor);
+  transition-duration: 0.4s;
+}
+
+#popupReservation p.book:hover span.layer {
+  color: #000;
+}
+
+#popupReservation p.book:before {
+  content: "";
+  background-color: var(--mainColor);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transform: translateY(-100%);
+  top: 0;
+  left: 0;
+  transition-duration: 0.5s;
+}
+
+#popupReservation p.book:after {
+  content: "";
+  background-color: var(--mainColor);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transform: translateY(100%);
+  bottom: 0;
+  left: 0;
+  transition-duration: 0.5s;
+}
+
+#popupReservation p.book:hover:before,
+#popupReservation p.book:hover:after {
+  transform: translateY(0);
+}
+
+/*-------------About Us----------------*/
+#about {
+  background-image: url("../images/bg.png");
+  background-color: #0e0d0c;
+  position: relative;
+  overflow: hidden;
+}
+#about .left {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: fit-content;
+  height: fit-content;
+  z-index: 1;
+  animation-name: topAndBottom;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+}
+#about .right {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  z-index: 1;
+  animation-name: topAndBottom;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#about .title {
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+}
+#about .title h6 {
+  color: var(--mainColor);
+  position: relative;
+  z-index: 100;
+}
+#about .title .image {
+  width: 60%;
+  margin: auto;
+}
+#about h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 3.5rem;
+}
+
+#about .item {
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+  padding-bottom: 15px;
+}
+#about .item .patternBackGround {
+  transition-duration: 1s;
+}
+#about .item .patternBackGround::before {
+  position: absolute;
+  top: 0;
+  left: -300%;
+  content: "";
+  display: block;
+  width: 120px;
+  height: 100%;
+  z-index: 10;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.4) 100%);
+  transform: skew(-20deg);
+}
+#about .item .patternBackGround:hover::before {
+  left: 400%;
+  transition-duration: 1.5s;
+}
+
+#about .item .pattern {
+  transition-duration: 1s;
+  transform: rotateY(0deg);
+}
+
+#about .item .patternBackGround:hover .pattern {
+  transform: rotateY(180deg);
+}
+
+#about .patternBackGround {
+  width: 40%;
+  margin: auto;
+  position: relative;
+}
+
+#about .mainPhoto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  transform: translate(-50%, -50%);
+}
+
+#about a {
+  color: var(--mainColor);
+  display: block;
+  width: fit-content;
+  margin: 20px auto 0;
+  text-align: center;
+  position: relative;
+}
+
+#about a:before {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 4px;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 1px solid var(--mainColor);
+  border-bottom: 1px solid var(--mainColor);
+  transition-duration: 0.5s;
+}
+
+#about a:hover:before {
+  width: 100%;
+  bottom: -8px;
+}
+
+/*---------------OUR STORY-----------------*/
+
+#story {
+  background-color: #171819;
+}
+#story .title {
+  margin: auto;
+  width: fit-content;
+}
+#story .title h6 {
+  color: var(--mainColor);
+}
+#story .title .image {
+  width: 100%;
+  margin: auto;
+}
+
+#story h2 {
+  width: 70%;
+  margin: auto;
+  font-size: 3.2rem;
+}
+
+#story p.text {
+  width: 75%;
+  margin: auto;
+}
+
+#story p.bookNow {
+  text-shadow: 1px 1px 0px #fff;
+}
+#story p.phone {
+  margin: auto;
+  color: var(--mainColor);
+  width: fit-content;
+  font-size: 22px;
+  cursor: pointer;
+  position: relative;
+}
+
+#story p.phone:before {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 4px;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 1px solid var(--mainColor);
+  border-bottom: 1px solid var(--mainColor);
+  transition-duration: 0.5s;
+}
+
+#story p.phone:hover:before {
+  width: 100%;
+  bottom: -8px;
+}
+#story a {
+  text-transform: uppercase;
+  font-size: 15px;
+  border: 2px solid var(--mainColor);
+  border-radius: 5px;
+  padding: 15px 35px;
+  letter-spacing: 1.5px;
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  left: 50%;
+  z-index: 10;
+  color: var(--mainColor);
+  transform: translateX(-50%);
+  overflow: hidden;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  display: inline-block; /* note : any anchor have display block (because that margin and overflow wasn't work correctly ) */
+}
+#story a span {
+  position: relative;
+  z-index: 100;
+  transition-duration: 0.5s;
+}
+#story a:hover span {
+  color: #000;
+}
+
+#story a:before {
+  content: "";
+  background-color: var(--mainColor);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transform: translateY(-100%);
+  top: 0;
+  left: 0;
+  transition-duration: 0.5s;
+}
+
+#story a:after {
+  content: "";
+  background-color: var(--mainColor);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transform: translateY(100%);
+  bottom: 0;
+  left: 0;
+  transition-duration: 0.5s;
+}
+
+#story a:hover:before,
+#story a:hover:after {
+  transform: translateY(0);
+}
+#story .mainPhoto {
+  width: 80%;
+  position: relative;
+}
+#story .part2 {
+  overflow: hidden;
+}
+#story .badge {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 130px;
+  z-index: 10;
+}
+
+#story .badge1,
+#story .badge2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#story .badge1 {
+  z-index: 2;
+}
+
+#story .badge2 {
+  z-index: 1;
+  animation-name: rotateBadge;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+#story .layout {
+  position: relative;
+}
+
+#story .layout .chef {
+  position: absolute;
+  z-index: 5;
+  top: 100%;
+  left: -8%;
+  transform: translateY(-70%);
+  width: 220px;
+}
+
+#story .layout .pattern {
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: calc(-8% + 110px);
+  transform: translate(-50%, -50%);
+  margin: auto;
+  width: 200px;
+  height: 280px;
+}
+
+/*-------------SPECIAL DISH--------------------*/
+#special-dish {
+  background-image: url("../images/bg.png");
+  background-color: #0e0d0c;
+  overflow: hidden;
+}
+
+#special-dish .part1 {
+  background-image: url("../images/special-dish.jpg");
+  background-position: center;
+  background-size: 140%;
+  background-repeat: no-repeat;
+  min-height: 600px;
+  padding-right: clamp(15px, 5vw, 90px);
+}
+
+#special-dish .item {
+  width: fit-content;
+  margin-left: 70px;
+}
+
+#special-dish .title {
+  margin: initial;
+}
+
+#special-dish h5 {
+  color: var(--mainColor);
+}
+#special-dish .title .badge {
+  animation-name: BadgeTransformTranslate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+}
+
+#special-dish .content {
+  padding-left: clamp(10px, 3vw, 40px);
+}
+#special-dish .content h2 {
+  font-size: 3rem;
+}
+
+#special-dish p.describtion {
+  width: 75%;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+#special-dish .price .oldPrice {
+  text-decoration: line-through;
+  color: #a7a7a7;
+}
+#special-dish .price .oldPrice h5 {
+  color: #a7a7a7;
+}
+#special-dish .price .currentPrice {
+  color: var(--mainColor);
+}
+
+#special-dish a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 15px;
+  border: 2px solid var(--mainColor);
+  border-radius: 5px;
+  padding: 15px 35px;
+  letter-spacing: 1.5px;
+  position: relative;
+  width: fit-content;
+  z-index: 10;
+  color: var(--mainColor);
+  overflow: hidden;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  display: inline-block; /* note : any anchor have display block (because that margin and overflow wasn't work correctly ) */
+}
+
+#special-dish a:before {
+  content: "";
+  background-color: var(--mainColor);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transform: translateY(-100%);
+  top: 0;
+  left: 0;
+  transition-duration: 0.5s;
+}
+
+#special-dish a:after {
+  content: "";
+  background-color: var(--mainColor);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transform: translateY(100%);
+  bottom: 0;
+  left: 0;
+  transition-duration: 0.5s;
+}
+#special-dish a:hover:before,
+#special-dish a:hover:after {
+  transform: translateY(0);
+}
+#special-dish a span {
+  transition-duration: 0.3s;
+  position: relative;
+  z-index: 10;
+}
+#special-dish a:hover span {
+  color: #000;
+}
+
+/*Menu*/
+#menu {
+  background-color: #171819;
+  color: #fff;
+}
+#menu .firstImage {
+  top: 0;
+  left: 0;
+  animation-name: topAndBottom;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+}
+#menu .secoundImage {
+  bottom: 0;
+  right: 0;
+  animation-name: topAndBottom;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+}
+#menu .title {
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#menu .title img {
+  margin: auto;
+  width: 40%;
+  display: block;
+}
+#menu .title h5 {
+  color: var(--mainColor);
+}
+#menu h2 {
+  color: #fff;
+  margin: auto;
+  text-align: center;
+  font-size: 3rem;
+}
+#menu ul.categories {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 30px;
+  color: #fff;
+  font-size: 20px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding-block: 18px;
+}
+
+#menu ul.categories li:not(:first-child):before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border: 2px solid var(--mainColor);
+  margin-right: 10px;
+  transform: rotate(45deg);
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+#menu ul.categories a {
+  position: relative;
+  cursor: pointer;
+}
+#menu ul.categories a:before {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 4px;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 1px solid var(--mainColor);
+  border-bottom: 1px solid var(--mainColor);
+  transition-duration: 0.5s;
+}
+
+#menu ul.categories a:hover::before,
+#menu ul.categories li.active a::before {
+  width: 100%;
+  bottom: -8px;
+}
+
+#menu .categoryPhoto {
+  position: relative;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+#menu .categoryPhoto img {
+  width: 100%;
+  display: block;
+  border-radius: inherit;
+  max-height: 90px;
+}
+
+#menu .categoryPhoto .layout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  z-index: 5;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(228, 197, 144, 0.7);
+  transition-duration: 0.5s;
+}
+#menu .categoryPhoto:hover .layout {
+  opacity: 1;
+}
+
+#menu .layout i {
+  position: relative;
+  z-index: 10;
+  color: #000;
+  font-size: 23px;
+  transform: rotate(0);
+  transition-duration: 0.5s;
+  opacity: 0;
+  cursor: pointer;
+}
+#menu .categoryPhoto:hover .layout i {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+#menu .layout i {
+  position: relative;
+  z-index: 10;
+  color: #000;
+  font-size: 23px;
+  transform: rotate(0);
+  transition-duration: 0.5s;
+  opacity: 0;
+  cursor: pointer;
+}
+#menu .categoryPhoto:hover .layout i {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+#menu .name h3 {
+  color: var(--mainColor);
+  font-size: 20px;
+}
+
+#menu .name span {
+  background-color: #a7a7a7;
+  width: 140px;
+  height: 1px;
+  display: block;
+  margin: 0px 10px;
+}
+#menu .name {
+  width: fit-content;
+}
+#menu .name .lines span:first-child {
+  margin-bottom: 2px;
+}
+#menu .price {
+  color: var(--mainColor);
+}
+#menu .price h3 {
+  font-size: 20px;
+}
+#menu .text p {
+  font-size: 15px;
+  color: #a7a7a7;
+}
+
+#menu .part1 .row > div,
+#menu .part2 .row > div {
+  opacity: 0;
+  transform: translate(-20px, -20px);
+  transition-duration: 1s;
+}
+
+#menu .part1 .row.animate-menu > div,
+#menu .part2 .row.animate-menu > div {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+#menu .part1 .row > div:nth-child(1),
+#menu .part1 .row > div:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+#menu .part1 .row > div:nth-child(3),
+#menu .part1 .row > div:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+#menu .part1 .row > div:nth-child(5),
+#menu .part1 .row > div:nth-child(6) {
+  transition-delay: 0.9s;
+}
+
+#menu .part2 .row > div:nth-child(1),
+#menu .part2 .row > div:nth-child(2) {
+  transition-delay: 1.2s;
+}
+
+#menu .part2 .row > div:nth-child(3),
+#menu .part2 .row > div:nth-child(4) {
+  transition-delay: 1.5s;
+}
+
+#menu .part2 .row > div:nth-child(5),
+#menu .part2 .row > div:nth-child(6) {
+  transition-delay: 1.8s;
+}
+
+#menuPopup {
+  background-color: rgba(228, 197, 144, 0.7);
+  width: 100%;
+  height: 100%;
+  display: none;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  transition-duration: 1s;
+}
+
+#menuPopup.active {
+  display: flex;
+}
+
+#menuPopup.show {
+  opacity: 1;
+}
+#menuPopup .box {
+  background-color: #171819;
+  width: 43%;
+  max-height: 100%;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  transform: translateY(-400px);
+  opacity: 0;
+  transition-duration: 1s;
+  max-height: calc(100% - 40px);
+  margin: 40px 0px;
+}
+
+#menuPopup.show .box {
+  transform: translateY(0);
+  opacity: 1;
+}
+#menuPopup .box::-webkit-scrollbar {
+  width: 8px;
+}
+
+#menuPopup .box::-webkit-scrollbar-thumb {
+  background: var(--mainColor);
+  border-radius: 10px;
+}
+
+#menuPopup .box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#menuPopup .title {
+  width: fit-content;
+  margin: auto;
+}
+
+#menuPopup .title .image {
+  width: 85%;
+  margin: auto;
+}
+
+#menuPopup .title h5 {
+  color: var(--mainColor);
+}
+
+#menuPopup i {
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  width: 25px;
+  height: 25px;
+}
+#menuPopup .box {
+  background-color: #171819;
+  width: 50%;
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+}
+#menuPopup h2 {
+  font-size: 3rem;
+}
+#menuPopup p.text {
+  color: #a7a7a7;
+  text-align: start;
+}
+
+#menuPopup .custom-control {
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--mainColor);
+  padding: 5px 10px;
+  transform: translateY(-50%) rotate(45deg);
+  transition:
+    transform 0.5s linear,
+    background-color 0.5s linear;
+  background-color: var(--mainColor);
+  color: #fff;
+}
+
+#menuPopup .custom-arrow {
+  display: inline-block;
+  transform: rotate(-45deg);
+  font-size: 16px;
+  background-color: var(--mainColor);
+  color: #fff;
+  transition: color 0.4s linear;
+}
+
+#menuPopup .carousel-control-next {
+  right: 60px;
+}
+#menuPopup .carousel-control-prev {
+  left: 60px;
+}
+#menuPopup .image {
+  border-radius: 15px;
+  overflow: hidden;
+  max-height: 240px;
+}
+#menuPopup .dishPhoto {
+  position: relative;
+}
+#menuPopup .title .image {
+  width: 60%;
+}
+
+#menu .categoryPhoto {
+  position: relative;
+  overflow: hidden;
+}
+
+#menu .categoryPhoto img {
+  transition: transform 0.6s ease;
+}
+
+#menu .categoryPhoto:hover img {
+  transform: scale(1.15);
+}
+
+#menu .categoryPhoto .zoomOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent 70%);
+  opacity: 0;
+  transform: translateY(15px);
+  transition-duration: 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15px;
+}
+
+#menu .categoryPhoto:hover .zoomOverlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#menu .categoryPhoto .zoomOverlay .goldLine {
+  width: 0%;
+  height: 2px;
+  background-color: var(--mainColor);
+  margin-bottom: 8px;
+  transition: width 0.5s ease 0.15s;
+}
+
+#menu .categoryPhoto:hover .zoomOverlay .goldLine {
+  width: 40px;
+}
+
+#menu .categoryPhoto .zoomOverlay .zoomContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(8px);
+  transition-duration: 0.5s;
+}
+
+#menu .categoryPhoto:hover .zoomOverlay .zoomContent {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#menu .categoryPhoto .zoomOverlay span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.menuSearch {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto 30px;
+}
+
+.menuSearch input {
+  width: 100%;
+  padding: 12px 20px 12px 45px;
+  background-color: transparent;
+  border: 1px solid var(--mainColor);
+  border-radius: 30px;
+  color: #fff;
+  outline: none;
+  transition: box-shadow 0.5s;
+}
+
+.menuSearch input:focus {
+  box-shadow: 0 0 10px rgba(228, 197, 144, 0.4);
+}
+
+.menuSearch input::placeholder {
+  color: #a7a7a7;
+}
+
+.menuSearch i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mainColor);
+}
+.noResults {
+  width: 100%;
+  color: #a7a7a7;
+}
+
+.noResults p {
+  font-size: 16px;
+}
+
+/*chefs*/
+#chefs {
+  background-image: url("../images/bg.png");
+  background-color: #0e0d0c;
+}
+
+#chefs .title {
+  width: fit-content;
+  margin: auto;
+}
+#chefs h5 {
+  color: var(--mainColor);
+  margin: auto;
+}
+#chefs .title .image {
+  width: 60%;
+  margin: auto;
+}
+#chefs h2 {
+  font-size: 3rem;
+}
+#chefs .item {
+  overflow: hidden;
+}
+#chefs .item .image {
+  position: relative;
+  z-index: 4;
+  overflow: hidden;
+  border-radius: 10px;
+}
+#chefs .item .image img {
+  transition-duration: 0.5s;
+  transform: scale(1);
+}
+#chefs .item .image:hover img {
+  transform: scale(1.1) rotate(2deg);
+  opacity: 0.6;
+}
+#chefs .item .layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  background-color: #fff3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  transition-duration: 0.5s;
+}
+
+#chefs .item .image:hover .layer {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+#chefs .item .image .layer ul {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+#chefs .item .image .layer ul li {
+  width: 35px;
+  height: 35px;
+  background-color: #171819;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+}
+#chefs .item .image .layer ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-decoration: none;
+}
+#chefs .item .image .layer ul li:nth-child(1) a {
+  color: #1877f2;
+}
+#chefs .item .image .layer ul li:nth-child(1):hover {
+  background-color: #1877f2;
+  color: #fff;
+}
+#chefs .item .image .layer ul li:nth-child(1):hover a {
+  color: #fff;
+}
+#chefs .item .image .layer ul li:nth-child(2):hover {
+  background-color: #fff;
+}
+#chefs .item .image .layer ul li:nth-child(2):hover a {
+  color: #000;
+}
+
+#chefs .item .image .layer ul li:nth-child(3) a {
+  color: #e4405f;
+}
+#chefs .item .image .layer ul li:nth-child(3):hover {
+  background-color: #e4405f;
+}
+#chefs .item .image .layer ul li:nth-child(3):hover a {
+  color: #fff;
+}
+#chefs .item .image .layer ul li:nth-child(4) a {
+  color: #0a66c2;
+}
+#chefs .item .image .layer ul li:nth-child(4):hover {
+  background-color: #0a66c2;
+}
+#chefs .item .image .layer ul li:nth-child(4):hover a {
+  color: #fff;
+}
+#chefs h3 {
+  color: #fff;
+}
+#chefs p.info {
+  color: var(--mainColor);
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 12px;
+}
+#chefs p.text {
+  color: #a7a7a7;
+  font-size: 15px;
+}
+
+/*contact us*/
+#contact {
+  background-image: url("../images/contact-bg.jpg");
+  background-position: center;
+  position: relative;
+}
+#contact::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+#contact .form {
+  width: 50%;
+  max-width: 500px;
+  background-image: url("../images/pattern-9.svg");
+  background-position: center;
+  position: relative;
+  z-index: 2;
+  margin: auto;
+}
+
+#contact .form .content {
+  position: relative;
+  width: 95%;
+  z-index: 5;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#contact .form .content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/bg.png");
+  z-index: -1;
+  background-color: #171819;
+}
+#contact .form .content .head {
+  color: #a7a7a7;
+  font-size: 14px;
+}
+
+#contact .spans {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5px;
+}
+#contact img {
+  animation-name: logoAnimation;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+#contact .head span {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background-color: transparent;
+  border: 2px solid var(--mainColor);
+  margin-right: 10px;
+  transform: rotate(45deg);
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+#contact input,
+#contact textarea {
+  width: 100%;
+  background-color: transparent;
+  color: #a7a7a7;
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
+  padding: 10px;
+}
+#contact input:focus,
+#contact textarea:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+#contact textarea {
+  resize: none;
+  width: 100%;
+  height: 180px;
+}
+#contact a {
+  text-transform: uppercase;
+  font-size: 12px;
+  border: 2px solid var(--mainColor);
+  border-radius: 5px;
+  padding: 15px 35px;
+  letter-spacing: 1.5px;
+  position: relative;
+  overflow: hidden;
+  color: var(--mainColor);
+  text-decoration: none;
+  overflow: hidden;
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+#contact .body a span {
+  transition-duration: 0.5s;
+  z-index: 10;
+  position: relative;
+}
+#contact .body a:hover span {
+  color: #000;
+}
+
+#contact a:before {
+  content: "";
+  background-color: var(--mainColor);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transform: translateY(-100%);
+  top: 0;
+  left: 0;
+  transition-duration: 0.5s;
+}
+
+#contact a:after {
+  content: "";
+  background-color: var(--mainColor);
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transform: translateY(100%);
+  bottom: 0;
+  left: 0;
+  transition-duration: 0.5s;
+}
+
+#contact a:hover:after,
+#contact a:hover:before {
+  transform: translateY(0);
+}
+
+#contact .footer {
+  color: #fff;
+  position: relative;
+  z-index: 100;
+  margin: auto;
+  text-align: center;
+}
+
+#contact .footer span {
+  color: var(--mainColor);
+}
+
+/*up to home*/
+.upToHome {
+  background-color: var(--mainColor);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  padding: 7px 12px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  top: auto;
+  left: auto;
+  z-index: 800;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition-duration: 0.4s;
+}
+
+.upToHome.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/*scroll progress*/
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, #b19542, var(--mainColor), #fff3c4);
+  background-size: 200% 100%;
+  border-radius: 0 5px 5px 0;
+  box-shadow:
+    0 0 10px var(--mainColor),
+    0 0 4px rgba(255, 255, 255, 0.5);
+  z-index: 9999;
+  transition-duration: 0.1s;
+  animation-name: progress;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

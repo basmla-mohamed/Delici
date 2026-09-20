@@ -1,0 +1,481 @@
+/*350*/
+@media (max-width: 1300px) {
+  nav.navbar ul.main {
+    display: none !important;
+  }
+  nav .logo {
+    width: 40%;
+  }
+  nav.navbar .offcanvas {
+    width: 85%;
+  }
+  nav .offcanvas .navbar-nav {
+    width: 80%;
+  }
+  nav .info {
+    font-size: 14px;
+  }
+  #home h1 {
+    font-size: 2rem;
+    width: 100%;
+  }
+  #home .carousel-control-prev {
+    display: none;
+  }
+  #home .carousel-control-next {
+    display: none;
+  }
+  #home .carousel-item h1 {
+    width: 75%;
+  }
+  #home p.description {
+    font-size: 14px;
+    font-weight: 200;
+    text-align: center;
+    width: 90%;
+  }
+  #home a.viewMenu {
+    padding: 10px 10px;
+    font-size: 12px;
+  }
+  #home .booking {
+    width: 80px;
+    height: 80px;
+    left: 20px;
+    top: 95%;
+    transform: translateY(-95%);
+  }
+  #home .booking::before {
+    width: 80px;
+    height: 80px;
+  }
+  #home .booking img {
+    width: 35%;
+  }
+  #home .booking p {
+    font-size: 10px;
+  }
+  #home .carousel-indicators {
+    top: 93%;
+    left: 77%;
+    transform: translateX(-80%);
+  }
+  #popupReservation .box {
+    width: 90%;
+    max-width: 400px;
+  }
+  #popupReservation p.book {
+    font-size: 11px;
+    padding: 10px 15px;
+  }
+  #about h2 {
+    font-size: 2rem;
+  }
+  #about .patternBackGround {
+    width: 50%;
+  }
+  #story h2 {
+    font-size: 2rem;
+  }
+  #story p.text {
+    width: 85%;
+  }
+  #story a {
+    font-size: 10px;
+    padding: 10px 15px;
+  }
+  #story .badge {
+    width: 100px;
+  }
+  #story .layout .chef {
+    position: absolute;
+    z-index: 5;
+    top: 100%;
+    left: -8%;
+    transform: translateY(-70%);
+    width: 150px;
+  }
+  #story .layout .pattern {
+    top: 100%;
+    left: calc(-8% + 75px);
+    transform: translate(-50%, -50%);
+  }
+  #story .part2 {
+    overflow: initial;
+  }
+  #special-dish .part1 {
+    background-size: 230%;
+    min-height: 500px;
+    padding-right: clamp(0px);
+  }
+  #special-dish .item {
+    margin-left: 40px;
+  }
+  #special-dish .content h2 {
+    font-size: 2rem;
+  }
+  #special-dish p.describtion {
+    width: 90%;
+  }
+  #special-dish a {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+  #chefs h2 {
+    font-size: 2rem;
+  }
+  #chefs .item {
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 40px;
+  }
+  #contact .form {
+    width: 90%;
+    max-width: 350px;
+  }
+  #contact input,
+  #contact textarea {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  #loadingPage p {
+    font-size: 3rem;
+  }
+  #menu .categoryPhoto img {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    display: block;
+    border-radius: inherit;
+    max-height: initial;
+  }
+
+  #menu ul.categories {
+    font-size: 12px;
+  }
+  #menu .info {
+    text-align: center;
+  }
+  #menu .name h3 {
+    text-align: center;
+    font-size: 16px;
+  }
+  #menu .price h3 {
+    font-size: 16px;
+  }
+
+  #menu ul.categories li:not(:first-child):before {
+    width: 8px;
+    height: 8px;
+  }
+  #menuPopup .box {
+    width: 90%;
+    max-width: 400px;
+  }
+  #menu .part1 .row > div,
+  #menu .part2 .row > div {
+    margin: auto;
+    text-align: center;
+  }
+  #menu .info {
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+  }
+  #menu .categoryPhoto {
+    width: fit-content;
+    margin: auto;
+  }
+}
+/*450 */
+@media (min-width: 450px) and (max-width: 1300px) {
+  nav.navbar .offcanvas {
+    width: 68%;
+  }
+  #home h1 {
+    font-size: 2.6rem;
+  }
+
+  #home a.viewMenu {
+    padding: 10px 13px;
+    font-size: 12px;
+  }
+
+  #about h2 {
+    font-size: 2.5rem;
+  }
+  #about .patternBackGround {
+    width: 40%;
+  }
+  #story a {
+    font-size: 12px;
+    padding: 10px 18px;
+  }
+  #special-dish .part1 {
+    background-size: 160%;
+    min-height: 500px;
+  }
+  #special-dish .item {
+    margin-left: 60px;
+  }
+  #special-dish .content h2 {
+    font-size: 2rem;
+  }
+  #special-dish p.describtion {
+    width: 90%;
+  }
+  #special-dish a {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+  #loadingPage p {
+    font-size: 3.5rem;
+  }
+}
+/*650*/
+@media (min-width: 577px) and (max-width: 1300px) {
+  nav.navbar .offcanvas {
+    width: 60%;
+  }
+  nav .offcanvas .navbar-nav {
+    width: 60%;
+  }
+  #home .carousel-item h1 {
+    width: 75%;
+    font-size: 3rem;
+  }
+
+  #home a.viewMenu {
+    padding: 10px 17px;
+    font-size: 12px;
+  }
+  #home .carousel-indicators {
+    top: 93%;
+    left: 80%;
+    transform: translateX(-80%);
+  }
+  #home .booking {
+    left: 30px;
+    top: 95%;
+    transform: translateY(-95%);
+  }
+  #story h2 {
+    font-size: 2.6rem;
+    width: 70%;
+  }
+  #story p.text {
+    width: 75%;
+  }
+  #story .mainPhoto {
+    width: 50%;
+    position: relative;
+  }
+  #story .layout .chef {
+    position: absolute;
+    z-index: 5;
+    top: 100%;
+    left: -8%;
+    transform: translateY(-70%);
+    width: 150px;
+  }
+  #story .layout .pattern {
+    top: 100%;
+    left: calc(-8% + 75px);
+    transform: translate(-50%, -50%);
+  }
+  #special-dish .part1 {
+    background-size: 130%;
+    min-height: 500px;
+  }
+  #special-dish .item {
+    margin-left: 60px;
+  }
+  #special-dish .content h2 {
+    font-size: 2.3rem;
+  }
+  #special-dish p.describtion {
+    width: 80%;
+  }
+  #special-dish a {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+  #chefs h2 {
+    font-size: 2.5rem;
+  }
+  #loadingPage p {
+    font-size: 4rem;
+  }
+  #menu ul.categories {
+    font-size: 18px;
+  }
+  #menu .info {
+    text-align: center;
+  }
+  #menu .name h3 {
+    text-align: center;
+    font-size: 16px;
+  }
+  #menu .price h3 {
+    font-size: 16px;
+  }
+}
+/*850*/
+@media (min-width: 769px) and (max-width: 1300px) {
+  nav.navbar .offcanvas {
+    width: 50%;
+  }
+  nav .offcanvas .navbar-nav {
+    width: 55%;
+  }
+  #home .carousel-item h1 {
+    width: 75%;
+    font-size: 4.5rem;
+  }
+  #popupReservation .box {
+    width: 60%;
+    max-width: initial;
+  }
+  #about .patternBackGround {
+    width: 23%;
+  }
+  #special-dish .part1 {
+    background-size: 120%;
+    min-height: 500px;
+  }
+  #special-dish .item {
+    margin-left: 60px;
+  }
+  #special-dish .content h2 {
+    font-size: 2.5rem;
+  }
+  #special-dish p.describtion {
+    width: 75%;
+  }
+  #special-dish a {
+    font-size: 15px;
+    padding: 15px 15px;
+  }
+  #chefs h2 {
+    font-size: 3rem;
+  }
+  #chefs .item {
+    max-width: initial;
+    margin: initial;
+    margin-bottom: 0px;
+  }
+  #contact .form {
+    width: 80%;
+    max-width: 500px;
+  }
+  #contact input,
+  #contact textarea {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  #loadingPage p {
+    font-size: 6rem;
+  }
+  #menuPopup .box {
+    width: 90%;
+    max-width: 600px;
+  }
+}
+/*1050*/
+@media (min-width: 992px) and (max-width: 1300px) {
+  nav.navbar .offcanvas {
+    width: 37%;
+  }
+  nav .offcanvas .navbar-nav {
+    width: 58%;
+  }
+  #home .carousel-item h1 {
+    width: 55%;
+    font-size: 4.3rem;
+  }
+  #home .carousel-indicators {
+    top: 93%;
+    left: 83%;
+    transform: translateX(-83%);
+  }
+  #popupReservation .box {
+    width: 50%;
+    max-width: 550px;
+  }
+  #about h2 {
+    font-size: 3.5rem;
+  }
+  #about .patternBackGround {
+    width: 50%;
+  }
+  #story .mainPhoto {
+    width: 80%;
+    position: relative;
+  }
+  #story .layout .chef {
+    position: absolute;
+    z-index: 5;
+    top: 100%;
+    left: -8%;
+    transform: translateY(-70%);
+    width: 220px;
+  }
+
+  #story .layout .pattern {
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    left: calc(-8% + 110px);
+    transform: translate(-50%, -50%);
+    margin: auto;
+    width: 200px;
+    height: 280px;
+  }
+  #story p.text {
+    width: 100%;
+  }
+  #special-dish .part1 {
+    background-image: url("../images/special-dish.jpg");
+    background-position: center;
+    background-size: 185%;
+    background-repeat: no-repeat;
+    min-height: 600px;
+    padding-right: clamp(15px, 5vw, 90px);
+  }
+  #special-dish .item {
+    width: fit-content;
+    margin-left: 70px;
+  }
+  #special-dish .content h2 {
+    font-size: 3rem;
+  }
+
+  #special-dish p.describtion {
+    width: 75%;
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+
+  #menu ul.categories li:not(:first-child):before {
+    width: 10px;
+    height: 10px;
+  }
+  #menuPopup .box {
+    width: 90%;
+    max-width: 600px;
+  }
+  #menu .part1 .row > div,
+  #menu .part2 .row > div {
+    margin: initial;
+    text-align: initial;
+  }
+  #menu .info {
+    text-align: initial;
+    width: initial;
+    margin: initial;
+  }
+  #menu .categoryPhoto {
+    width: initial;
+    margin: initial;
+  }
+}
